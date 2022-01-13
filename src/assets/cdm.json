@@ -1,0 +1,40 @@
+{
+  "_version": "3.0",
+  "payload": {
+    "visualizations": {
+      "LuigiNavConfig":{
+        "vizType": "sap.luigi.node",
+        "vizConfig": {
+          "viewGroup" : {
+            "preloadSuffix" : "/#/preload",
+            "requiredIFramePermissions": {
+              "allow": ["clipboard-read","clipboard-write"],
+              "sandbox": ["allow-forms"]
+            }
+          },
+          "nodes": [
+            {
+              "pathSegment" : "test-test-30552532",
+              "label" : "test-test-30552532",
+              "hideFromNav": false,
+              "virtualTree": true,
+              "urlSuffix" : "/#:projectId/test-test-30552532",
+              "icon": "lab",
+              "entityType": "project"
+            }
+          ]
+        }
+      }
+    },
+    "targetAppConfig": {
+      "_version": "1.13.0",
+      "sap.integration": {
+        "navMode": "inplace",
+        "urlTemplateId": "urltemplate.url",
+        "urlTemplateParams": {
+          "query": {}
+        }
+      }
+    }
+  }
+}

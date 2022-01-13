@@ -1,0 +1,89 @@
+<fd-dynamic-page background="transparent" size="large" ariaLabel="Example Dynamic Page" style="position: relative; display: block">
+  <fd-dynamic-page-header title="Angular Micro-Frontend Template" subtitle="dxp-micro-frontend-ngx">
+    <fd-breadcrumb>
+      <fd-breadcrumb-item>
+        <a fd-breadcrumb-link [attr.href]="'#'">DXP</a>
+      </fd-breadcrumb-item>
+      <fd-breadcrumb-item>
+        <a fd-breadcrumb-link [attr.href]="'#'">Projects</a>
+      </fd-breadcrumb-item>
+      <fd-breadcrumb-item>
+        <a fd-breadcrumb-link [attr.href]="'#'">Templates</a>
+      </fd-breadcrumb-item>
+      <fd-breadcrumb-item>
+        <span id="current-path">Home</span>
+      </fd-breadcrumb-item>
+    </fd-breadcrumb>
+
+    <fd-dynamic-page-title-content>
+      {{version}}
+    </fd-dynamic-page-title-content>
+    <fd-dynamic-page-global-actions>
+      <fd-toolbar fdType="transparent" [clearBorder]="true">
+        <button fd-toolbar-item fd-button [compact]="true" fdType="neutral" label="Documentation"></button>
+      </fd-toolbar>
+    </fd-dynamic-page-global-actions>
+  </fd-dynamic-page-header>
+  <fd-dynamic-page-subheader [collapsible]="true" [pinnable]="false" [collapsed]="false">
+    collapsible header content goes here
+    <span>
+        This template bootstraps the implementation of a micro-frontend based on Angular 10.2.x and the SAP Luigi
+        Framework.
+        Fiori 3 compliance is enabled by the usage of SAP UI5 WebComponents,
+        SAP Fundamental Styles NGX Core and SAP Fundamental Styles NGX Platform.
+        <p>
+          Delete this part and set <code>[collapsible]="false"</code>, if this section is not required in your case.
+        </p>
+      </span>
+  </fd-dynamic-page-subheader>
+  <fd-dynamic-page-content id="basic">
+    <div>
+      <h4>Luigi</h4>
+      Something appears after the colon when the page is opened within a Luigi Shell: <div id="luigiMsg">{{ message }}
+      </div>
+      <div *ngIf="buttonVisible">
+        <button fd-button [fdType]="'emphasized'" label="Navigate to another micro frontend"
+            (click)="buttonClicked()" [disabled]="buttonDisabled"></button>
+        <span *ngIf="buttonDisabled">
+          If the button is disabled, it means the navigation entry '{{ navigationPath }}' doesn't exist.
+        </span>
+        <br><br>
+        <button fd-button label="Open core as modal" (click)="openModalClicked()"></button>
+      </div>
+      <p>
+        To test the Luigi functionality locally, use
+        <a fd-link href="https://fiddle.luigi-project.io/" target="_blank">
+          https://fiddle.luigi-project.io/
+        </a>, click on "Modify Config" at the bottom of the page,
+        and a child element to the <code>children</code> array. Specify http://localhost:{{port}} as the
+        <code>viewUrl</code>.
+      </p>
+    </div>
+    <div>
+      <h4>i18n</h4>
+      Angular has built-in i18n service.
+      <p i18n>Hello i18n! It's english language</p>
+      <p i18n>This is another line</p>
+      <p>
+        To add more i18n elements, you need to: <br/>
+        - add <code>i18n</code> annotate to element, <br/>
+        - run <code>npm run extract</code> <br/>
+        - copy trans-unit element from <code>src/locale/message.xlf</code> to translation file and
+        add <code>target</code> with translated term.
+      </p>
+      <p>For more info visit <a fd-link href="https://angular.io/guide/i18n">Angular 18n official documentation</a></p>
+    </div>
+  </fd-dynamic-page-content>
+  <fd-dynamic-page-footer>
+    <div fd-bar barDesign="floating-footer">
+      <div fd-bar-right>
+        <fd-bar-element>
+          <button fd-button fdType="emphasized" [compact]="true" label="Save"></button>
+        </fd-bar-element>
+        <fd-bar-element>
+          <button fd-button fdType="transparent" [compact]="true" label="Cancel"></button>
+        </fd-bar-element>
+      </div>
+    </div>
+  </fd-dynamic-page-footer>
+</fd-dynamic-page>

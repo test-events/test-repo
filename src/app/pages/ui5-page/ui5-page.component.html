@@ -1,0 +1,58 @@
+
+<fd-dynamic-page background="transparent" size="large" ariaLabel="Example Dynamic Page" style="position: relative; display: block">
+  <fd-dynamic-page-header title="@ui5/webcomponents" subtitle="dxp-micro-frontend-ngx">
+    <fd-breadcrumb>
+      <fd-breadcrumb-item>
+        <a fd-breadcrumb-link [attr.href]="'#'">DXP</a>
+      </fd-breadcrumb-item>
+      <fd-breadcrumb-item>
+        <a fd-breadcrumb-link [attr.href]="'#'">Projects</a>
+      </fd-breadcrumb-item>
+      <fd-breadcrumb-item>
+        <a fd-breadcrumb-link [attr.href]="'#'">Templates</a>
+      </fd-breadcrumb-item>
+      <fd-breadcrumb-item>
+        <a fd-breadcrumb-link [routerLink]="'/home'">Angular</a>
+      </fd-breadcrumb-item>
+      <fd-breadcrumb-item>
+        <span>@ui5/webcomponents</span>
+      </fd-breadcrumb-item>
+    </fd-breadcrumb>
+
+    <fd-dynamic-page-title-content>
+      {{version}}
+    </fd-dynamic-page-title-content>
+    <fd-dynamic-page-global-actions>
+      <fd-toolbar fdType="transparent" [clearBorder]="true">
+        <button fd-toolbar-item fd-button [compact]="true" fdType="neutral" label="Documentation"></button>
+      </fd-toolbar>
+    </fd-dynamic-page-global-actions>
+  </fd-dynamic-page-header>
+  <fd-dynamic-page-subheader [collapsible]="true" [pinnable]="false" [collapsed]="false">
+    <p>
+    The UI5 Web Components share fundamental UI5 qualities with others to provide enterprise-grade features, Fiori UX and themeability.
+    </p>
+    <p>
+      The goal is to achieve an easy consumption of UI5 controls to lower the entry barrier to use UI5 controls for own applications and
+      to avoid complexity of UI5 rendering-stack by making the consumption of the full-stack UI5 optional.
+    </p>
+    <p>To provide full support for native two ways data binding, there is a need to include <code>origami</code> library.</p>
+
+    <ui5-link href="https://sap.github.io/ui5-webcomponents/playground" target="_blank">
+      Check for ui5-webcomponents documentation
+    </ui5-link>
+
+  </fd-dynamic-page-subheader>
+  <fd-dynamic-page-content id="basic">
+    <ui5-button>UI5 Webcomponent Buton</ui5-button>
+    <br/>
+    <br/>
+
+    <ui5-input [(ngModel)]="stringValue" placeholder="Placeholder..." origami></ui5-input>
+    <small>Input field value: {{stringValue}}</small>
+
+    <ui5-checkbox [(ngModel)]="booleanValue" text="checkbox" origami></ui5-checkbox>
+    <small>Checkbox value: {{booleanValue}}</small>
+
+  </fd-dynamic-page-content>
+</fd-dynamic-page>

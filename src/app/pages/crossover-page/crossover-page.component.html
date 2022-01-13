@@ -1,0 +1,75 @@
+<fd-dynamic-page background="transparent" size="large" ariaLabel="Example Dynamic Page"
+  style="position: relative; display: block">
+  <fd-dynamic-page-header title="Angular Micro-Frontend Template" subtitle="dxp-micro-frontend-ngx">
+    <fd-breadcrumb>
+      <fd-breadcrumb-item>
+        <a fd-breadcrumb-link [attr.href]="'#'">DXP</a>
+      </fd-breadcrumb-item>
+      <fd-breadcrumb-item>
+        <a fd-breadcrumb-link [attr.href]="'#'">Projects</a>
+      </fd-breadcrumb-item>
+      <fd-breadcrumb-item>
+        <a fd-breadcrumb-link [attr.href]="'#'">Templates</a>
+      </fd-breadcrumb-item>
+      <fd-breadcrumb-item>
+        <span>Angular</span>
+      </fd-breadcrumb-item>
+    </fd-breadcrumb>
+
+    <fd-dynamic-page-title-content>
+      10.2.2
+    </fd-dynamic-page-title-content>
+    <fd-dynamic-page-global-actions>
+      <fd-toolbar fdType="transparent" [clearBorder]="true">
+        <button fd-toolbar-item fd-button [compact]="true" fdType="neutral" (click)="closePage($event)"
+          label="Documentation"></button>
+      </fd-toolbar>
+    </fd-dynamic-page-global-actions>
+  </fd-dynamic-page-header>
+  <fd-dynamic-page-subheader [collapsible]="true" [pinnable]="false" [collapsed]="false"
+    (collapseChange)="onCollapseChange($event)">
+    <!-- collapsible header content goes here -->
+    <span>
+      This template bootstraps the implementation of a micro-frontend based on Angular 10.2.x and the SAP Luigi
+      Framework.
+      Fiori 3 compliance is enabled by the usage of SAP UI5 WebComponents,
+      SAP Fundamental Styles NGX Core and SAP Fundamental Styles NGX Platform.
+      <p>
+        Delete this part and set <code>[collapsible]="false"</code>, if this section is not required in your case.
+      </p>
+    </span>
+  </fd-dynamic-page-subheader>
+  <fd-dynamic-page-content id="basic">
+    <ui5-button>UI5-Webcomponents</ui5-button>
+    <br />
+    <button fd-button [fdType]="'emphasized'" label="Fundamental-NGX Core"></button>
+    <br />
+    <fdp-button buttonType="positive" label="Fundamental-NGX Platform"></fdp-button>
+    <h1 i18n="@@introductionHeader">Hello i18n!</h1>
+    <div>
+      Something appears after the colon when the page is opened within a Luigi Shell: <div id="luigiMsg">{{ message }}
+      </div>
+      <p>
+        To test the Luigi functionality locally, execute <code>npm run luigi</code> and use <a
+          href="http://localhost:8091" target="_blank">http://localhost:8091</a>.
+      </p>
+    </div>
+    <ui5-input [(ngModel)]="input1" origami></ui5-input>
+    <div>Input field value: {{input1}}</div>
+    <ui5-checkbox [(ngModel)]="input2" origami></ui5-checkbox>
+    <div>Checkbox value: {{input2}}</div>
+  </fd-dynamic-page-content>
+  <fd-dynamic-page-footer>
+    <!-- page footer content goes here -->
+    <div fd-bar barDesign="floating-footer">
+      <div fd-bar-right>
+        <fd-bar-element>
+          <button fd-button fdType="emphasized" [compact]="true" label="Save" (click)="closePage($event)"></button>
+        </fd-bar-element>
+        <fd-bar-element>
+          <button fd-button fdType="transparent" [compact]="true" label="Cancel" (click)="closePage($event)"></button>
+        </fd-bar-element>
+      </div>
+    </div>
+  </fd-dynamic-page-footer>
+</fd-dynamic-page>

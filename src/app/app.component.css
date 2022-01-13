@@ -1,0 +1,9 @@
+.ngx-template-content {
+  display: flex;
+  position: relative;
+}
+
+.ngx-template-wrapper {
+  background-color: var(--sapBackgroundColor);
+  height: 100vh;
+}

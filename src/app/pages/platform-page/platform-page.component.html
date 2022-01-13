@@ -1,0 +1,62 @@
+
+<fd-dynamic-page background="transparent" size="large" ariaLabel="Example Dynamic Page" style="position: relative; display: block">
+  <fd-dynamic-page-header title="@fundamental-ngx/platform" subtitle="dxp-micro-frontend-ngx">
+    <fd-breadcrumb>
+      <fd-breadcrumb-item>
+        <a fd-breadcrumb-link [attr.href]="'#'">DXP</a>
+      </fd-breadcrumb-item>
+      <fd-breadcrumb-item>
+        <a fd-breadcrumb-link [attr.href]="'#'">Projects</a>
+      </fd-breadcrumb-item>
+      <fd-breadcrumb-item>
+        <a fd-breadcrumb-link [attr.href]="'#'">Templates</a>
+      </fd-breadcrumb-item>
+      <fd-breadcrumb-item>
+        <a fd-breadcrumb-link [routerLink]="'/home'">Angular</a>
+      </fd-breadcrumb-item>
+      <fd-breadcrumb-item>
+        <span>@fundamental-ngx/platform</span>
+      </fd-breadcrumb-item>
+    </fd-breadcrumb>
+
+    <fd-dynamic-page-title-content>
+      {{version}}
+    </fd-dynamic-page-title-content>
+    <fd-dynamic-page-global-actions>
+      <fd-toolbar fdType="transparent" [clearBorder]="true">
+        <button fd-toolbar-item fd-button [compact]="true" fdType="neutral" label="Documentation"></button>
+      </fd-toolbar>
+    </fd-dynamic-page-global-actions>
+  </fd-dynamic-page-header>
+  <fd-dynamic-page-subheader [pinnable]="false" [collapsed]="false">
+    <div>
+      <p>
+        The @fundamental-ngx/platform is built on top of the @fundamental-ngx/core to enhance existing functionality and
+        to provide a higher abstraction for the components by hiding most of the internal implementation details.
+      </p>
+      <p>
+        The goal is to create a layer which is closer to application development and not to the library creators.
+      </p>
+      <fdp-link href="https://fundamental-ngx.netlify.app/#/platform/home" target="_blank">
+        Check for @fundamental-ngx/platform documentation
+      </fdp-link>
+    </div>
+  </fd-dynamic-page-subheader>
+  <fd-dynamic-page-content id="basic">
+    <fdp-button label="Platform Button"></fdp-button>
+    <br/>
+    <br/>
+
+    <fdp-checkbox
+      [name]="'checkbox-platform'"
+      [label]="'Platform Checkbox'"
+      [isBinary]="true"
+      [(ngModel)]="booleanValue">
+    </fdp-checkbox>
+    <small>Checkbox value: {{booleanValue}}</small>
+
+    <fdp-input [name]="'input-platform'" [(ngModel)]="stringValue" [type]="'text'" placeholder="Field placeholder text"></fdp-input>
+    <small>Input field value: {{stringValue}}</small>
+
+  </fd-dynamic-page-content>
+</fd-dynamic-page>

@@ -1,0 +1,20 @@
+kind: Component
+metadata:
+  displayName: test-30552532-test
+  description: test-30552532-
+  annotations:
+    techdocs.sap.com: "component"
+spec:
+  type:
+    name: website
+    categories:
+      - dxp
+      - angular
+      - luigi
+  template:
+    version: 0.1.11
+    name: Eureka Angular Template
+  team:
+    name: <no value>
+    productOwner: <no value>
+    technicalOwner: <no value>

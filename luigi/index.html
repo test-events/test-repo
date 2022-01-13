@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Hello DxpMicroFrontendNgx</title>
+    <link rel='stylesheet' href='https://unpkg.com/@luigi-project/core/luigi.css'>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <script src="https://unpkg.com/@luigi-project/core/luigi.js"></script>
+    <script>
+
+/*******************
+ * THEMING Example
+ ******************/
+      let themes = [{
+        id: 'sap_fiori_3',
+        name: 'Fiori 3'
+      },{
+        id: 'sap_fiori_3_dark',
+        name: 'Fiori 3 Dark'
+      },{
+        id: 'sap_fiori_3_hcb',
+        name: 'High Contrast Black'
+      },{
+        id: 'sap_fiori_3_hcw',
+        name: 'High Contrast White'
+      },{
+        id: 'sap_fiori_3_light_dark',
+        name: 'Light Dark'
+      }];
+
+      function buildPath(node) {
+        return (node.parent ? buildPath(node.parent) : '') + '/' + node.pathSegment;
+      }
+
+      function setThemeSheet(id) {
+        let oldSheet = document.head.querySelector('link[theme]');
+        if(oldSheet) {
+          oldSheet.parentNode.removeChild(oldSheet);
+        }
+        let themeSheet = document.createElement('link');
+        themeSheet.setAttribute('rel', 'stylesheet');
+        themeSheet.setAttribute('theme', id);
+        themeSheet.setAttribute('href', `https://unpkg.com/@sap-theming/theming-base-content/content/Base/baseLib/${id}/css_variables.css`);
+        document.head.appendChild(themeSheet);
+      }
+
+      function applyTheme(id) {
+        Luigi.theming().setCurrentTheme(id);
+        setThemeSheet(id);
+        sessionStorage.setItem('theme', id);
+        let currentNode = Luigi.elements().getCurrentMicrofrontendIframe().luigi;
+        let path = buildPath(currentNode);
+        document.querySelectorAll('.iframeContainer iframe').forEach(el => {
+          el.parentNode.removeChild(el);
+        });
+        let currentHash = window.location.hash;
+        window.location.hash = currentHash + '?';
+        window.location.hash = currentHash;
+      }
+
+      let themeNodes = [];
+      for(let i = 0; i < themes.length; i++) {
+        let theme = themes[i];
+        themeNodes.push({
+          category: i === 0 ? {  label: "theme", icon: "palette" } : "theme",
+          label: theme.name,
+          pathSegment: '-' + i,
+          themeId: theme.id,
+          onNodeActivation: (node) => {
+            applyTheme(node.themeId);
+            return false;
+          }
+        });
+      }
+
+      let lastTheme = sessionStorage.getItem('theme');
+      if(lastTheme) {
+        Luigi.theming().setCurrentTheme(lastTheme);
+        setThemeSheet(lastTheme);
+      }
+
+
+/*******************
+ * LUIGI config
+ ******************/
+      Luigi.setConfig({
+            navigation: {
+                viewGroupSettings: {
+                  vg1: {
+                    preloadUrl: 'http://localhost:4200/preload'
+                  }
+                },
+                nodes: [{
+                    pathSegment: 'home',
+                    hideFromNav: true,
+                    children: [{
+                        pathSegment: 'hello',
+                        label: 'DxpMicroFrontendNgx',
+                        viewUrl: 'http://localhost:4200',
+                        virtualTree: true,
+                        viewGroup: 'vg1',
+                        context: {
+                            title: 'Hello DxpMicroFrontendNgx!',
+                            content: " ",
+                            imgUrl: "https://fiddle.luigi-project.io/img/logos/Luigi-logo_rgb.svg",
+                            imgWidth: "300",
+                            imgTopMargin: true,
+                            pathForNav: '/home/hello2'
+                        }
+                    }, {
+                        pathSegment: 'hello2',
+                        label: 'Another entry',
+                        viewUrl: 'https://fiddle.luigi-project.io/examples/microfrontends/multipurpose.html',
+                        isolateView: true,
+                        context: {
+                            title: 'Hello from another microfrontent!',
+                            content: " ",
+                            imgUrl: "https://fiddle.luigi-project.io/img/logos/Luigi-logo_rgb.svg",
+                            imgWidth: "300",
+                            imgTopMargin: true
+                        }
+                    }]
+                },...themeNodes]
+            },
+            routing: {
+                useHashRouting: true
+            },
+            settings: {
+                responsiveNavigation: 'semiCollapsible',
+                header: {
+                    title: 'Hello DxpMicroFrontendNgx',
+                    logo: 'https://fiddle.luigi-project.io/img/luigi.png'
+                },
+                theming: {
+                  themes: themes,
+                  defaultTheme: lastTheme || 'sap_fiori_3',
+                  nodeViewURLDecorator: {
+                    queryStringParameter: {
+                      keyName: 'sap-theme'
+                    }
+                  }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

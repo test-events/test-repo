@@ -1,0 +1,34 @@
+/* You can add global styles to this file, and also import other style files */
+
+@font-face {
+  font-family: "SAP-icons";
+  src: url("~@sap-theming/theming-base-content/content/Base/baseLib/sap_fiori_3/fonts/SAP-icons.woff2") format("woff2"); /* available in woff, woff2 and ttf */
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Add SAP-fonts required by SAP Fundamental Styles */
+@font-face {
+  font-family: "72";
+  src: url("~@sap-theming/theming-base-content/content/Base/baseLib/sap_base_fiori/fonts/72-Regular-full.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "72";
+  src: url("~@sap-theming/theming-base-content/content/Base/baseLib/sap_base_fiori/fonts/72-Bold-full.woff2")
+  format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
+  /* Reset for body element */
+  body {
+    margin: 0;
+  }
+
+
+  .fd-dynamic-page__header-fixed {
+    position: absolute !important;
+  }

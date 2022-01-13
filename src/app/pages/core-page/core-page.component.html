@@ -1,0 +1,56 @@
+
+<fd-dynamic-page background="transparent" size="large" ariaLabel="Example Dynamic Page" style="position: relative; display: block">
+  <fd-dynamic-page-header title="@fundamental-ngx/core" subtitle="dxp-micro-frontend-ngx">
+    <fd-breadcrumb>
+      <fd-breadcrumb-item>
+        <a fd-breadcrumb-link [attr.href]="'#'">DXP</a>
+      </fd-breadcrumb-item>
+      <fd-breadcrumb-item>
+        <a fd-breadcrumb-link [attr.href]="'#'">Projects</a>
+      </fd-breadcrumb-item>
+      <fd-breadcrumb-item>
+        <a fd-breadcrumb-link [attr.href]="'#'">Templates</a>
+      </fd-breadcrumb-item>
+      <fd-breadcrumb-item>
+        <a fd-breadcrumb-link [routerLink]="'/home'">Angular</a>
+      </fd-breadcrumb-item>
+      <fd-breadcrumb-item>
+        <span>@fundamental-ngx/core</span>
+      </fd-breadcrumb-item>
+    </fd-breadcrumb>
+
+    <fd-dynamic-page-title-content>
+      {{version}}
+    </fd-dynamic-page-title-content>
+    <fd-dynamic-page-global-actions>
+      <fd-toolbar fdType="transparent" [clearBorder]="true">
+        <button fd-toolbar-item fd-button [compact]="true" fdType="neutral" label="Documentation"></button>
+      </fd-toolbar>
+    </fd-dynamic-page-global-actions>
+  </fd-dynamic-page-header>
+  <fd-dynamic-page-subheader [pinnable]="false" [collapsed]="false">
+    <div>
+      <p>
+        The @fundamental-ngx/core library is a set of Angular components built using SAP Fundamental Styles.
+      </p>
+      <p>
+        The SAP Fundamental Styles library is a design system and HTML/CSS component library used to build modern product user experiences with the SAP look and feel.
+      </p>
+      <a fd-link href="https://fundamental-ngx.netlify.app/#/core/home" target="_blank">
+        Check for @fundamental-ngx/core documentation
+      </a>
+    </div>
+  </fd-dynamic-page-subheader>
+  <fd-dynamic-page-content id="basic">
+    <button fd-button label="Core Button"></button>
+    <br/>
+    <br/>
+
+    <fd-checkbox label="Core Checkbox" [(ngModel)]="booleanValue"></fd-checkbox>
+    <small>Checkbox value: {{booleanValue}}</small>
+
+    <input fd-form-control placeholder="Field placeholder text" [(ngModel)]="stringValue" />
+    <small>Input field value: {{stringValue}}</small>
+
+  </fd-dynamic-page-content>
+</fd-dynamic-page>
