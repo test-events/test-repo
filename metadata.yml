@@ -1,7 +1,7 @@
 kind: Component
 metadata:
-  displayName: test-30552532-test
-  description: test-30552532-
+  displayName: github-com-test
+  description: Github Com Component
   annotations:
     techdocs.sap.com: "component"
 spec:
